@@ -31,7 +31,7 @@ const Features = () => {
           <div className="p-6 md:w-1/2">
             <h3 className="text-2xl font-semibold text-teal-800 mb-4">Predictive Maintenance Alerts</h3>
             <p className="text-gray-600 mb-4">Get timely alerts for maintenance needs before issues arise, helping you avoid overflows and ensuring efficient service.</p>
-            <Link to="/predictive-maintenance">
+            <Link to="/predictive">
               <button className="px-6 py-3 bg-teal-600 text-white font-medium rounded-lg shadow-md hover:bg-teal-700 transition-transform transform hover:scale-105">
                 Learn More
               </button>
@@ -45,7 +45,7 @@ const Features = () => {
           <div className="p-6 md:w-1/2">
             <h3 className="text-2xl font-semibold text-teal-800 mb-4">Waste Segregation Monitoring</h3>
             <p className="text-gray-600 mb-4">Advanced sensors to detect and sort different types of waste, enhancing recycling efforts and promoting eco-friendly practices.</p>
-            <Link to="/waste-segregation">
+            <Link to="/waste-monitoring">
               <button className="px-6 py-3 bg-teal-600 text-white font-medium rounded-lg shadow-md hover:bg-teal-700 transition-transform transform hover:scale-105">
                 Learn More
               </button>
@@ -59,7 +59,7 @@ const Features = () => {
           <div className="p-6 md:w-1/2">
             <h3 className="text-2xl font-semibold text-teal-800 mb-4">Route Optimization for Waste Collection</h3>
             <p className="text-gray-600 mb-4">Optimize collection routes using data-driven insights, reducing fuel consumption and improving service efficiency.</p>
-            <Link to="/route-optimization">
+            <Link to="/route">
               <button className="px-6 py-3 bg-teal-600 text-white font-medium rounded-lg shadow-md hover:bg-teal-700 transition-transform transform hover:scale-105">
                 Learn More
               </button>

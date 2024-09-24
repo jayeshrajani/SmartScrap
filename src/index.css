@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body {
+    font-family: 'Poppins'; /* Primary font */
+  }
+  
+  h1, h2 {
+    font-family: 'Anton', serif; /* Secondary font for headings */
+  }
+
+  .anton-regular {
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  

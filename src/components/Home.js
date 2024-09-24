@@ -28,35 +28,33 @@ const Home = () => {
 
     return (
         <div className="home bg-gray-100 text-gray-800 min-h-screen flex flex-col"> 
-            
             <main className="p-8 flex-grow"> 
                 <section className="text-center py-16">
                     <h2 className="text-5xl font-extrabold text-teal-900">Welcome to SmartScrap</h2>
                     <p className="mt-4 text-lg text-gray-700">Optimize waste collection with our smart scrap system.</p>
 
-                    {/* Tabs */}
-                    <div className="mt-8 flex justify-center space-x-4">
+                    {/* Tabs with reduced size */}
+                    <div className="mt-8 flex justify-center space-x-2"> {/* Adjusted space between tabs */}
                         {tabs.map((tab, index) => (
                             <button 
                                 key={index}
-                                className={`px-4 py-2 rounded-lg transition-colors duration-300 
+                                className={`px-2 py-1 rounded-lg transition-colors duration-300 
                                     ${activeTab === index ? 'bg-teal-600 text-white' : 'bg-gray-200 text-gray-700'} 
-                                    hover:bg-teal-700`}
+                                    hover:bg-teal-700`} 
                                 onMouseEnter={() => setActiveTab(index)}
-                                // onMouseLeave={() => setActiveTab(null)} // Uncomment if you want tabs to deactivate on mouse leave
                             >
-                                <span className={`transition-all duration-300 
-                                    ${activeTab === index ? 'transform scale-110' : ''}`}> 
+                                <span className={`transition-all duration-300 text-base
+                                    ${activeTab === index ? 'transform scale-110' : ''}`}> {/* Smaller text */}
                                     {tab.title}
                                 </span>
                             </button>
                         ))}
                     </div>
 
-                    {/* Tab Content */}
+                    {/* Tab content with more visible text */}
                     <div className="mt-8 p-6 bg-white rounded-lg shadow-lg transition-opacity duration-500">
-                        {activeTab !== null && ( 
-                            <p className={`text-lg text-gray-700 
+                        {activeTab !== null && (
+                            <p className={`text-lg text-gray-800 font-medium
                                 ${activeTab !== null ? 'opacity-100' : 'opacity-0'}`}>
                                 {tabs[activeTab].content}
                             </p>

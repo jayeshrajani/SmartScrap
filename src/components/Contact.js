@@ -1,20 +1,37 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isSubmitted, setIsSubmitted] = useState(false); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add API call logic here for form submission
     console.log('Form submitted:', formData);
-    // Reset form after submission
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setFormData({ name: '', email: '', message: '' });
+      setIsSubmitted(false); 
+    }, 2000); // Reset after 2 seconds
   };
 
   return (
-    <div className="p-8 bg-gray-100 min-h-screen">
-      <h2 className="text-3xl font-bold text-teal-900 mb-8 text-center">Contact Us</h2>
-      <div className="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-6">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="p-8 bg-gradient-to-r from-teal-100 to-blue-100 min-h-screen"
+    >
+      <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-blue-600 mb-8 text-center">
+        Contact Us
+      </h2>
+      <motion.div
+        initial={{ scale: 0.8, rotate: -10 }}
+        animate={{ scale: 1, rotate: 0 }}
+        transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
+        className="max-w-lg mx-auto bg-white shadow-2xl rounded-lg p-6 border-t-4 border-teal-500"
+      >
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Name:</label>
@@ -52,15 +69,27 @@ const Contact = () => {
             ></textarea>
           </div>
 
-          <button
+          <motion.button
+            whileHover={{ scale: 1.1, rotate: 5, backgroundColor: "#0056b3" }}
+            whileTap={{ scale: 0.9 }}
             type="submit"
-            className="w-full py-3 bg-teal-600 text-white font-medium rounded-md shadow-md hover:bg-teal-700 transition-transform transform hover:scale-105"
+            className="w-full py-3 bg-teal-600 text-white font-medium rounded-md shadow-md transition-all duration-300"
           >
-            Submit
-          </button>
+            {isSubmitted ? (
+              <motion.span
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: "spring", stiffness: 500, damping: 20 }}
+              >
+                🚀 Sent!
+              </motion.span>
+            ) : (
+              "Submit"
+            )}
+          </motion.button>
         </form>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
